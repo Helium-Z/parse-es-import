@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "es",
+    "module": "ES6",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "lib": ["ES2015"],
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
