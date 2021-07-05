@@ -36,7 +36,7 @@ console.log(JSON.stringify(results, null, 2));
 ### API
 
 * `content`: `String` - Contents of code to parse.
-* `options`: `Object` - Receive all parameters of [`acorn.parse`](https://github.com/acornjs/acorn/tree/master/acorn#interface).
+* `options`: `Object` - Receive all parameters of [`acorn.parse`](https://github.com/acornjs/acorn/tree/master/acorn#interface). Its default value is `{ ecmaVersion: 2021, sourceType: 'module' }`.
 
 ### Returns
 

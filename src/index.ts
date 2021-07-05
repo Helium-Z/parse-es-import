@@ -17,7 +17,7 @@ type ImportInfo = {
 function parse(
   content: string,
   options: Options = {
-    ecmaVersion: 2015,
+    ecmaVersion: 2021,
     sourceType: 'module',
   }
 ) {
