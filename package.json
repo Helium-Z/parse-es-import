@@ -1,6 +1,6 @@
 {
   "name": "parse-es-import",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Parse the ESM dependencies of code snippets based on acorn",
   "keywords": [
     "esmodule",

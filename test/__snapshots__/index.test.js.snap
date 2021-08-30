@@ -3,161 +3,170 @@
 exports[`it matches the snapshot for each app example fixture 1`] = `
 Object {
   "name": "demo-1.jsx",
-  "result": Array [
-    Object {
-      "defaultImport": "React",
-      "moduleName": "react",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "antd",
-      "moduleName": "antd",
-      "namedImports": Array [
-        Object {
-          "alias": "AntButton",
-          "name": "Button",
-        },
-        Object {
-          "alias": "Alert",
-          "name": "Alert",
-        },
-      ],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "hello",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "Hello",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "xx.less",
-      "namedImports": Array [],
-      "sideEffectOnly": true,
-      "starImport": "",
-    },
-  ],
+  "result": Object {
+    "exportList": Array [],
+    "importList": Array [
+      Object {
+        "defaultImport": "React",
+        "moduleName": "react",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "antd",
+        "moduleName": "antd",
+        "namedImports": Array [
+          Object {
+            "alias": "AntButton",
+            "name": "Button",
+          },
+          Object {
+            "alias": "Alert",
+            "name": "Alert",
+          },
+        ],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "hello",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "Hello",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "xx.less",
+        "namedImports": Array [],
+        "sideEffectOnly": true,
+        "starImport": "",
+      },
+    ],
+  },
 }
 `;
 
 exports[`it matches the snapshot for each app example fixture 2`] = `
 Object {
   "name": "demo-2.jsx",
-  "result": Array [
-    Object {
-      "defaultImport": "React",
-      "moduleName": "react",
-      "namedImports": Array [
-        Object {
-          "alias": "foo",
-          "name": "useState",
-        },
-        Object {
-          "alias": "useEffect",
-          "name": "useEffect",
-        },
-        Object {
-          "alias": "useLayoutEffect",
-          "name": "useLayoutEffect",
-        },
-        Object {
-          "alias": "useRef",
-          "name": "useRef",
-        },
-        Object {
-          "alias": "useReducer",
-          "name": "useReducer",
-        },
-      ],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "react-dom",
-      "namedImports": Array [
-        Object {
-          "alias": "render",
-          "name": "render",
-        },
-      ],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "./logo.svg",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "logos",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "./App.css",
-      "namedImports": Array [],
-      "sideEffectOnly": true,
-      "starImport": "",
-    },
-  ],
+  "result": Object {
+    "exportList": Array [],
+    "importList": Array [
+      Object {
+        "defaultImport": "React",
+        "moduleName": "react",
+        "namedImports": Array [
+          Object {
+            "alias": "foo",
+            "name": "useState",
+          },
+          Object {
+            "alias": "useEffect",
+            "name": "useEffect",
+          },
+          Object {
+            "alias": "useLayoutEffect",
+            "name": "useLayoutEffect",
+          },
+          Object {
+            "alias": "useRef",
+            "name": "useRef",
+          },
+          Object {
+            "alias": "useReducer",
+            "name": "useReducer",
+          },
+        ],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "react-dom",
+        "namedImports": Array [
+          Object {
+            "alias": "render",
+            "name": "render",
+          },
+        ],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "./logo.svg",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "logos",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "./App.css",
+        "namedImports": Array [],
+        "sideEffectOnly": true,
+        "starImport": "",
+      },
+    ],
+  },
 }
 `;
 
 exports[`it matches the snapshot for each app example fixture 3`] = `
 Object {
   "name": "demo-3.jsx",
-  "result": Array [
-    Object {
-      "defaultImport": "React",
-      "moduleName": "react",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "react-dom",
-      "namedImports": Array [
-        Object {
-          "alias": "render",
-          "name": "render",
-        },
-      ],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "./index.css",
-      "namedImports": Array [],
-      "sideEffectOnly": true,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "App",
-      "moduleName": "./App",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "./serviceWorker",
-      "namedImports": Array [],
-      "sideEffectOnly": false,
-      "starImport": "serviceWorker",
-    },
-    Object {
-      "defaultImport": "",
-      "moduleName": "./really/long/import/ea/ut/exercitation/commodo/ad/ea/reprehenderit/nisi/deserunt/sint/ipsum/consectetur/occaecat/dolor/minim/dolor/consectetur/ad/reprehenderit/aute/nisi/duis/labore/eu/reprehenderit/deserunt/incididunt/quis/deserunt/ex/incididunt/occaecat/magna/veniam/sunt/anim/id/qui/non/consectetur/est/ad/laboris/velit/non/irure/cillum/sint/consectetur/cillum/deserunt/id/do/dolor/labore/pariatur/qui/est/qui/incididunt/dolore/eu/cupidatat/ea/pariatur/aliqua/laboris/excepteur/eiusmod/culpa/voluptate/ullamco/sint/dolor/do/incididunt/aliquip/irure/id/in/occaecat/duis/id/et/magna/id/enim/officia/aliquip/exercitation/cupidatat/quis/ipsum/non/incididunt/adipisicing/voluptate/quis/nostrud/veniam/magna/esse/excepteur/officia/lorem/ipsum/officia/fugiat/proident/amet/culpa/esse/amet/sit/esse/dolor/commodo/voluptate/excepteur/labore/cupidatat/ad/eu/ad/dolor/id/aliqua/in/veniam/laboris/excepteur/exercitation/officia/aliquip/elit/aliquip/dolore/sit/fugiat/fugiat/officia/fugiat/commodo/amet/laboris/nostrud",
-      "namedImports": Array [],
-      "sideEffectOnly": true,
-      "starImport": "",
-    },
-  ],
+  "result": Object {
+    "exportList": Array [],
+    "importList": Array [
+      Object {
+        "defaultImport": "React",
+        "moduleName": "react",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "react-dom",
+        "namedImports": Array [
+          Object {
+            "alias": "render",
+            "name": "render",
+          },
+        ],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "./index.css",
+        "namedImports": Array [],
+        "sideEffectOnly": true,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "App",
+        "moduleName": "./App",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "./serviceWorker",
+        "namedImports": Array [],
+        "sideEffectOnly": false,
+        "starImport": "serviceWorker",
+      },
+      Object {
+        "defaultImport": "",
+        "moduleName": "./really/long/import/ea/ut/exercitation/commodo/ad/ea/reprehenderit/nisi/deserunt/sint/ipsum/consectetur/occaecat/dolor/minim/dolor/consectetur/ad/reprehenderit/aute/nisi/duis/labore/eu/reprehenderit/deserunt/incididunt/quis/deserunt/ex/incididunt/occaecat/magna/veniam/sunt/anim/id/qui/non/consectetur/est/ad/laboris/velit/non/irure/cillum/sint/consectetur/cillum/deserunt/id/do/dolor/labore/pariatur/qui/est/qui/incididunt/dolore/eu/cupidatat/ea/pariatur/aliqua/laboris/excepteur/eiusmod/culpa/voluptate/ullamco/sint/dolor/do/incididunt/aliquip/irure/id/in/occaecat/duis/id/et/magna/id/enim/officia/aliquip/exercitation/cupidatat/quis/ipsum/non/incididunt/adipisicing/voluptate/quis/nostrud/veniam/magna/esse/excepteur/officia/lorem/ipsum/officia/fugiat/proident/amet/culpa/esse/amet/sit/esse/dolor/commodo/voluptate/excepteur/labore/cupidatat/ad/eu/ad/dolor/id/aliqua/in/veniam/laboris/excepteur/exercitation/officia/aliquip/elit/aliquip/dolore/sit/fugiat/fugiat/officia/fugiat/commodo/amet/laboris/nostrud",
+        "namedImports": Array [],
+        "sideEffectOnly": true,
+        "starImport": "",
+      },
+    ],
+  },
 }
 `;

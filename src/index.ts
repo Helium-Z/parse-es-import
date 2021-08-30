@@ -14,6 +14,12 @@ type ImportInfo = {
   sideEffectOnly: boolean;
 };
 
+type ExportInfo = {
+  type: string;
+  id: string;
+  init: string;
+};
+
 function parse(
   content: string,
   options: Options = {
@@ -21,12 +27,14 @@ function parse(
     sourceType: 'module',
   }
 ) {
-  const result = [];
+  const importList: ImportInfo[] = [];
+  const exportList: ExportInfo[] = [];
   const { body } = JSXParser.parse(content, options) as any;
 
   if (Array.isArray(body)) {
-    body.forEach(({ type, specifiers, source }) => {
-      if (type === 'ImportDeclaration') {
+    body.forEach((node) => {
+      if (node.type === 'ImportDeclaration') {
+        const { specifiers, source } = node;
         const item: ImportInfo = {
           moduleName: source.value,
           starImport: '',
@@ -50,18 +58,33 @@ function parse(
                   alias: local && local.name,
                 });
                 break;
+              default:
+                break;
             }
           });
         } else {
           item.sideEffectOnly = true;
         }
 
-        result.push(item);
+        importList.push(item);
+      }
+
+      if (node.type === 'ExportNamedDeclaration') {
+        node.declaration.declarations.forEach(({ type, id, init }) => {
+          exportList.push({
+            type,
+            id: id.name,
+            init: content.slice(init.start, init.end),
+          });
+        });
       }
     });
   }
 
-  return result;
+  return {
+    imports: importList,
+    exports: exportList,
+  };
 }
 
 export default parse;
