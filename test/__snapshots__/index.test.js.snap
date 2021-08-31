@@ -4,8 +4,8 @@ exports[`it matches the snapshot for each app example fixture 1`] = `
 Object {
   "name": "demo-1.jsx",
   "result": Object {
-    "exportList": Array [],
-    "importList": Array [
+    "exports": Array [],
+    "imports": Array [
       Object {
         "defaultImport": "React",
         "moduleName": "react",
@@ -52,8 +52,8 @@ exports[`it matches the snapshot for each app example fixture 2`] = `
 Object {
   "name": "demo-2.jsx",
   "result": Object {
-    "exportList": Array [],
-    "importList": Array [
+    "exports": Array [],
+    "imports": Array [
       Object {
         "defaultImport": "React",
         "moduleName": "react",
@@ -117,8 +117,8 @@ exports[`it matches the snapshot for each app example fixture 3`] = `
 Object {
   "name": "demo-3.jsx",
   "result": Object {
-    "exportList": Array [],
-    "importList": Array [
+    "exports": Array [],
+    "imports": Array [
       Object {
         "defaultImport": "React",
         "moduleName": "react",

@@ -15,9 +15,9 @@ type ImportInfo = {
 };
 
 type ExportInfo = {
-  type: string;
-  id: string;
-  init: string;
+  type: 'VariableDeclaration' | 'FunctionDeclaration' | 'ExportSpecifier';
+  moduleName: string;
+  value?: string;
 };
 
 function parse(
@@ -70,13 +70,39 @@ function parse(
       }
 
       if (node.type === 'ExportNamedDeclaration') {
-        node.declaration.declarations.forEach(({ type, id, init }) => {
-          exportList.push({
-            type,
-            id: id.name,
-            init: content.slice(init.start, init.end),
+        const { declaration, specifiers, source } = node;
+        if (declaration) {
+          switch (declaration.type) {
+            case 'VariableDeclaration':
+              declaration.declarations.forEach(({ id, init }) => {
+                exportList.push({
+                  type: declaration.type,
+                  moduleName: id.name,
+                  value: content.slice(init.start, init.end),
+                });
+              });
+              break;
+
+            case 'FunctionDeclaration':
+              exportList.push({
+                type: declaration.type,
+                moduleName: declaration.id.name,
+                value: content.slice(declaration.start, declaration.end),
+              });
+              break;
+
+            default:
+              break;
+          }
+        } else if (specifiers.length && source) {
+          specifiers.forEach(({ type, exported }) => {
+            exportList.push({
+              type,
+              moduleName: exported.name,
+              value: source.value,
+            });
           });
-        });
+        }
       }
     });
   }
