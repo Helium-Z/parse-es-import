@@ -35,10 +35,19 @@ console.log(JSON.stringify(results, null, 2));
 
 ### API
 
-* `content`: `String` - Contents of code to parse.
-* `options`: `Object` - Receive all parameters of [`acorn.parse`](https://github.com/acornjs/acorn/tree/master/acorn#interface). Its default value is `{ ecmaVersion: 2021, sourceType: 'module' }`.
+- `content`: `String` - Contents of code to parse.
+- `options`: `Object` - Receive all parameters of [`acorn.parse`](https://github.com/acornjs/acorn/tree/master/acorn#interface). Its default value is `{ ecmaVersion: 2021, sourceType: 'module' }`.
 
 ### Returns
+
+```json
+{
+  "imports": {},
+  "exports": {}
+}
+```
+
+#### imports
 
 | Attribute      | Type       | Default Value | Description                                                             |
 | -------------- | ---------- | ------------- | ----------------------------------------------------------------------- |
@@ -54,6 +63,14 @@ Named import objects have the form:
 | --------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | `String` | `''`          | The name of the named import (e.g. `{ useState }`)                                                                                                                               |
 | alias     | `String` | name          | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from 'module-name';`) |
+
+#### exports
+
+| Attribute  | Type     | Default Value | Description                                                          |
+| ---------- | -------- | ------------- | -------------------------------------------------------------------- |
+| moduleName | `String` | `''`          | The name of the module exported                                      |
+| type       | `String` | `''`          | The type of module exported                                          |
+| value      | `String` | `''`          | The value of module exported or a relative path (e.g. `'../add.js'`) |
 
 ## Example
 
@@ -74,43 +91,52 @@ export default () => {
 The parse result will be:
 
 ```json
-[
-  {
-    "defaultImport": "React",
-    "moduleName": "react",
-    "namedImports": [],
-    "sideEffectOnly": false,
-    "starImport": ""
-  },
-  {
-    "defaultImport": "antd",
-    "moduleName": "antd",
-    "namedImports": [
-      {
-        "alias": "AntButton",
-        "name": "Button"
-      },
-      {
-        "alias": "Alert",
-        "name": "Alert"
-      }
-    ],
-    "sideEffectOnly": false,
-    "starImport": ""
-  },
-  {
-    "defaultImport": "",
-    "moduleName": "hello",
-    "namedImports": [],
-    "sideEffectOnly": false,
-    "starImport": "Hello"
-  },
-  {
-    "defaultImport": "",
-    "moduleName": "xx.less",
-    "namedImports": [],
-    "sideEffectOnly": true,
-    "starImport": ""
-  }
-]
+{
+  "imports": [
+    {
+      "defaultImport": "React",
+      "moduleName": "react",
+      "namedImports": [],
+      "sideEffectOnly": false,
+      "starImport": ""
+    },
+    {
+      "defaultImport": "antd",
+      "moduleName": "antd",
+      "namedImports": [
+        {
+          "alias": "AntButton",
+          "name": "Button"
+        },
+        {
+          "alias": "Alert",
+          "name": "Alert"
+        }
+      ],
+      "sideEffectOnly": false,
+      "starImport": ""
+    },
+    {
+      "defaultImport": "",
+      "moduleName": "hello",
+      "namedImports": [],
+      "sideEffectOnly": false,
+      "starImport": "Hello"
+    },
+    {
+      "defaultImport": "",
+      "moduleName": "xx.less",
+      "namedImports": [],
+      "sideEffectOnly": true,
+      "starImport": ""
+    }
+  ],
+  "exports": [
+    {
+      "moduleName": "Demo",
+      "type": "FunctionDeclaration",
+      "value": "function Demo() {\n  return <div>Hello World...</div>;\n}"
+    }
+  ]
+}
 ```

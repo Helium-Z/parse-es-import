@@ -4,7 +4,15 @@ exports[`it matches the snapshot for each app example fixture 1`] = `
 Object {
   "name": "demo-1.jsx",
   "result": Object {
-    "exports": Array [],
+    "exports": Array [
+      Object {
+        "moduleName": "Demo",
+        "type": "FunctionDeclaration",
+        "value": "function Demo() {
+  return <div>Hello World...</div>;
+}",
+      },
+    ],
     "imports": Array [
       Object {
         "defaultImport": "React",
