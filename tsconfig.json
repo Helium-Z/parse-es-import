@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "es",
     "module": "ES6",
-    "target": "esnext",
+    "target": "es2015",
     "moduleResolution": "node",
     "jsx": "preserve",
     "lib": ["ES2015"],

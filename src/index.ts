@@ -75,20 +75,24 @@ function parse(
           switch (declaration.type) {
             case 'VariableDeclaration':
               declaration.declarations.forEach(({ id, init }) => {
-                exportList.push({
-                  type: declaration.type,
-                  moduleName: id.name,
-                  value: content.slice(init.start, init.end),
-                });
+                if (id && init) {
+                  exportList.push({
+                    type: declaration.type,
+                    moduleName: id.name,
+                    value: content.slice(init.start, init.end),
+                  });
+                }
               });
               break;
 
             case 'FunctionDeclaration':
-              exportList.push({
-                type: declaration.type,
-                moduleName: declaration.id.name,
-                value: content.slice(declaration.start, declaration.end),
-              });
+              if (declaration.id?.name) {
+                exportList.push({
+                  type: declaration.type,
+                  moduleName: declaration.id.name,
+                  value: content.slice(declaration.start, declaration.end),
+                });
+              }
               break;
 
             default:
@@ -96,11 +100,13 @@ function parse(
           }
         } else if (specifiers.length && source) {
           specifiers.forEach(({ type, exported }) => {
-            exportList.push({
-              type,
-              moduleName: exported.name,
-              value: source.value,
-            });
+            if (exported.name) {
+              exportList.push({
+                type,
+                moduleName: exported.name,
+                value: source.value,
+              });
+            }
           });
         }
       }
