@@ -17,8 +17,33 @@ type ImportInfo = {
 type ExportInfo = {
   type: 'VariableDeclaration' | 'FunctionDeclaration' | 'ExportSpecifier';
   moduleName: string;
-  value?: string;
+  value: string;
+  identifiers?: string[];
 };
+
+function collectIdentifiersFromObject(node, result = []): string[] {
+  node.properties.forEach((property) => {
+    // { ...A }
+    if (property.type === 'SpreadElement') {
+      result.push(property.argument.name);
+    }
+
+    // { B: _B, C: { _C: _C } }
+    if (property.type === 'Property') {
+      const valueNode = property.value;
+      if (valueNode.type === 'Identifier') {
+        result.push(valueNode.name);
+      }
+
+      if (valueNode.type === 'ObjectExpression') {
+        collectIdentifiersFromObject(valueNode, result);
+        return;
+      }
+    }
+  });
+
+  return result;
+}
 
 function parse(
   content: string,
@@ -76,10 +101,21 @@ function parse(
             case 'VariableDeclaration':
               declaration.declarations.forEach(({ id, init }) => {
                 if (id && init) {
+                  let identifiers = [];
+
+                  if (init.type === 'Identifier') {
+                    identifiers.push(init.name);
+                  }
+
+                  if (init.type === 'ObjectExpression') {
+                    identifiers = identifiers.concat(collectIdentifiersFromObject(init));
+                  }
+
                   exportList.push({
                     type: declaration.type,
                     moduleName: id.name,
                     value: content.slice(init.start, init.end),
+                    identifiers,
                   });
                 }
               });
