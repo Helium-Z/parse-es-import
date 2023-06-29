@@ -12,6 +12,8 @@ type ImportInfo = {
     alias: string;
   }>;
   sideEffectOnly: boolean;
+  startIndex: number;
+  endIndex: number;
 };
 
 type ExportInfo = {
@@ -19,6 +21,8 @@ type ExportInfo = {
   moduleName: string;
   value: string;
   identifiers?: string[];
+  startIndex: number;
+  endIndex: number;
 };
 
 function collectIdentifiersFromObject(node, result = []): string[] {
@@ -37,7 +41,6 @@ function collectIdentifiersFromObject(node, result = []): string[] {
 
       if (valueNode.type === 'ObjectExpression') {
         collectIdentifiersFromObject(valueNode, result);
-        return;
       }
     }
   });
@@ -66,6 +69,8 @@ function parse(
           defaultImport: '',
           namedImports: [],
           sideEffectOnly: false,
+          startIndex: node.start,
+          endIndex: node.end,
         };
 
         if (Array.isArray(specifiers) && specifiers.length) {
@@ -116,6 +121,8 @@ function parse(
                     moduleName: id.name,
                     value: content.slice(init.start, init.end),
                     identifiers,
+                    startIndex: node.start,
+                    endIndex: node.end,
                   });
                 }
               });
@@ -127,6 +134,8 @@ function parse(
                   type: declaration.type,
                   moduleName: declaration.id.name,
                   value: content.slice(declaration.start, declaration.end),
+                  startIndex: node.start,
+                  endIndex: node.end,
                 });
               }
               break;
@@ -141,6 +150,8 @@ function parse(
                 type,
                 moduleName: exported.name,
                 value: source.value,
+                startIndex: node.start,
+                endIndex: node.end,
               });
             }
           });
