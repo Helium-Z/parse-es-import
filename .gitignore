@@ -67,6 +67,10 @@ typings/
 
 package-lock.json
 
+es
+
+lib
+
 yarn.lock
 
 package-lock.json
