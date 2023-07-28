@@ -56,6 +56,8 @@ console.log(JSON.stringify(results, null, 2));
 | namedImports   | `Object[]` | `[]`          | List of named imports as a list of objects                              |
 | defaultImport  | `String`   | `''`          | The name of the default import, if present                              |
 | sideEffectOnly | `Boolean`  | false         | If the import was side-effect only (e.g. `import './App.css';`)         |
+| startIndex     | `Number`   | 0             | Index of the starting character of the import statement                 |
+| endIndex       | `Number`   | 0             | Index of the ending character + 1 of the import statement               |
 
 Named import objects have the form:
 
@@ -71,6 +73,8 @@ Named import objects have the form:
 | moduleName | `String` | `''`          | The name of the module exported                                      |
 | type       | `String` | `''`          | The type of module exported                                          |
 | value      | `String` | `''`          | The value of module exported or a relative path (e.g. `'../add.js'`) |
+| startIndex | `Number` | 0             | Index of the starting character of the export statement              |
+| endIndex   | `Number` | 0             | Index of the ending character + 1 of the export statement            |
 
 ## Example
 
@@ -95,13 +99,16 @@ The parse result will be:
   "imports": [
     {
       "defaultImport": "React",
+      "endIndex": 26,
       "moduleName": "react",
       "namedImports": [],
       "sideEffectOnly": false,
-      "starImport": ""
+      "starImport": "",
+      "startIndex": 0
     },
     {
       "defaultImport": "antd",
+      "endIndex": 83,
       "moduleName": "antd",
       "namedImports": [
         {
@@ -114,26 +121,33 @@ The parse result will be:
         }
       ],
       "sideEffectOnly": false,
-      "starImport": ""
+      "starImport": "",
+      "startIndex": 27
     },
     {
       "defaultImport": "",
+      "endIndex": 115,
       "moduleName": "hello",
       "namedImports": [],
       "sideEffectOnly": false,
-      "starImport": "Hello"
+      "starImport": "Hello",
+      "startIndex": 84
     },
     {
       "defaultImport": "",
+      "endIndex": 134,
       "moduleName": "xx.less",
       "namedImports": [],
       "sideEffectOnly": true,
-      "starImport": ""
+      "starImport": "",
+      "startIndex": 117
     }
   ],
   "exports": [
     {
+      "endIndex": 198,
       "moduleName": "Demo",
+      "startIndex": 136,
       "type": "FunctionDeclaration",
       "value": "function Demo() {\n  return <div>Hello World...</div>;\n}"
     }
